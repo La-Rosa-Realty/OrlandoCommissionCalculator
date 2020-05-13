@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<style>
+		.card {
+			width: 490px;
+			margin: auto;
+		}
+		* {
+			box-sizing: border-box;
+		}
+		.column {
+			float: left;
+			width: 50%;
+			padding: 10px;
+			font-size: 1em;
+		}
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		@media only screen
+			and (min-device-width: 375px) 
+  			and (max-device-width: 812px) 
+  			and (-webkit-min-device-pixel-ratio: 3)
+		{
+			.column {
+				width: 100%;
+			}
+		}
+	</style>
+	<title>Income Calculator</title>
+</head>
+<body>
+	<main style="margin:8px">
+		<div class="container-fluid">
+			<div class="card">
+				<div class="card-header">
+					<h3>Income Calculator</h3>
+					<p>Use the calculator below to see how much more you can keep by switching to La Rosa.</p>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="column">
+							<div class="card-header"><h4>Your Current Broker<br> </h4></div><br>
+							<p>Gross Commission Last Year<input type="number" class="form-control" min="1" id="grossComLY" required></p>
+							<p>Your Commission Split (%)*<input type="number" class="form-control" min="0" step="0.01" id="commissionSplitYC" required></p>
+							<h5>Less</h5>
+							<p>Desk Fee (Monthly)<input type="number" class="form-control" min="0" step="1" id="deskFeeYC"></p>
+							<p>Technology Fee (Monthly)<input type="number" class="form-control" min="0" step="1" id="techFeeYC"></p>
+							<p># of Transactions Last Year<input type="number" class="form-control" min="0" step="1" id="numTransLY"></p>
+							<p>Transaction Fee<input type="number" class="form-control" min="0" step="1" id="transFeeYC"></p>
+							<p>Franchise Fee (% of GCI)<input type="number" class="form-control" min="0" step="1" id="franFeeYC"></p>
+							<p>Errors and Ommission Insurance Fee (per Transaction)<input type="number" class="form-control" min="0" step="1" id="insurEOFeeYC"></p>
+							<h5 id="totalFeesYC">Total Fees: $ </h5>
+						</div>
+						<div class="column">
+							<div class="card-header"><h4>La Rosa Realty Orlando</h4></div><br>
+							<p>Gross Commission Last Year<input type="number" class="form-control" readonly= "true" id="grossComLYLR"></p>
+							<p>Your Commission Split (%)<input type="number" class="form-control" value="100" readonly="true" id="commissionSplitLR"></p>
+							<h5>Less</h5>
+							<p>Desk Fee (Annual)<input type="number" class="form-control" value="100" readonly="true" id="deskFeeLR"></p>
+							<p>Technology Fee (Monthly)<input type="number" class="form-control" value="50" readonly="true" id="techFeeLR"></p>
+							<p># of Transactions Last Year<input type="number" class="form-control" value="numTransLY" readonly="true" id="numTransLYLR"></p>
+							<p>Transaction Fee**<input type="number" class="form-control" value="395" readonly="true" id="transFeeLR"></p>
+							<p>Franchise Fee (% of GCI)<input type="number" class="form-control" value="0" readonly="true" id="franFeeLR"></p>
+							<p>Errors and Ommission Insurance Fee (per Transaction)<input type="number" class="form-control" value="0" readonly="true" id="insurEOFeeLR"></p>	
+							<h5 id="totalFeesLR">Total Fees: $ </h5>
+						</div>
+					</div>
+					<br>
+					<div class="card-header">
+						<h3 id="summarytotal"></h3>
+						<p id="larosaIncome"></p>
+						<p id="otherIncome"></p>
+						<p><h5 id="incomeDifference"></h5></p><br>
+						<p>*Commission split examples: For 70/30 split, enter 70. &nbsp For .002 x sales price, enter 93.5.</p>
+						<p id="noteLR">**Transaction Fee at La Rosa Orlando is paid by the customer.</p>
+					</div>
+					<button type="button" class="btn btn-outline-primary" id="btn">
+					Calculate Income Comparison</button>
+					<button type="button" class="btn btn-outline-primary" id="btn" onclick="window.location.href = 'https://join-la-rosa-orlando.constantcontactsites.com/contact';">
+					Contact Us For More Info</button>
+				</div>	
+			</div>	
+		</div>
+	</main>
+	<script src="calcLR3.js"></script>
+</body>
+</html>
+
